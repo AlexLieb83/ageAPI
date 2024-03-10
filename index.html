@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+    <title>Guess My Age</title>
+  </head>
+  <body>
+    <h1>Guess My Age</h1>
+
+    <form onsubmit="event.preventDefault(); getGuessedAge()" id="ageGuessForm">
+      <label for="name">First Name:</label>
+      <input type="text" name="name" id="name" required />
+      <label for="country">Country Initials, 2 Letters (Optional):</label>
+      <!-- Regex, enter two letters only -->
+      <input
+        type="text"
+        name="country"
+        id="country"
+        pattern="[A-Za-z]{2}"
+        title="Two Letter Country Initials"
+      />
+
+      <button type="submit">Guess Age</button>
+    </form>
+
+    <div id="result" aria-live="polite"></div>
+
+    <button type="button" onclick="resetForm()">Reset</button>
+  </body>
+</html>
